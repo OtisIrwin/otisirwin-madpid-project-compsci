@@ -19,11 +19,8 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
-controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
 tiles.setTilemap(tiles.createTilemap(
-            hex`0a0008000101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010202020202020202020202020202020202020202`,
+            hex`0a0008000202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020101010101010101010101010101010101010101`,
             img`
 . . . . . . . . . . 
 . . . . . . . . . . 
@@ -34,17 +31,17 @@ tiles.setTilemap(tiles.createTilemap(
 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,sprites.builtin.brick,sprites.castle.tileGrass2],
+            [myTiles.tile0,sprites.castle.tileGrass2,sprites.builtin.brick],
             TileScale.Sixteen
         ))
-let Hero = sprites.create(img`
+let hero = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . e e e . . . . . . . 
 . . . . . . d d d . . . . . . . 
 . . . . . . d d d . . . . . . . 
 . . . . . . d d d . . . . . . . 
-. . . . . . . 8 . . . . . . . . 
 . . . . . . 2 8 2 . . . . . . . 
+. . . . . 2 2 8 2 2 . . . . . . 
 . . . . 8 8 8 8 8 8 8 . . . . . 
 . . . . 2 2 2 8 2 2 2 . . . . . 
 . . . 2 2 2 2 8 2 2 2 2 . . . . 
@@ -55,4 +52,5 @@ let Hero = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-Hero.ay = 500
+tiles.placeOnTile(hero, tiles.getTileLocation(1, 5))
+hero.ay = 500
