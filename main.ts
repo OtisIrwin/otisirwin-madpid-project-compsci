@@ -216,8 +216,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
     otherSprite.destroy()
+    if (PacMan.y < otherSprite.y) {
+        info.changeScoreBy(2)
+    } else {
+        info.changeLifeBy(-1)
+    }
 })
 let MONSTER: Sprite = null
 let Space_Stone: Sprite = null
@@ -292,6 +296,7 @@ tiles.setTilemap(tiles.createTilemap(
         ))
 PacMan.ay = 320
 scene.cameraFollowSprite(PacMan)
+info.setLife(6)
 for (let value of tiles.getTilesByType(myTiles.tile6)) {
     Coin = sprites.create(img`
 . . . . . . . . . . . . . . . . 
