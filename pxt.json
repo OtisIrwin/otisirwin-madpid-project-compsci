@@ -1,7 +1,8 @@
 {
     "name": "OtisIrwin MADPID PROJECT CompSci",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "animation": "*"
     },
     "description": "",
     "files": [
