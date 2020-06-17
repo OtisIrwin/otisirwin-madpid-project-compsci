@@ -84,7 +84,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile4, function (sprite, location
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (YELLOW_BALL.vy == 0) {
-        YELLOW_BALL.vy = -150
+        YELLOW_BALL.vy = -140
     }
 })
 let YELLOW_BALL: Sprite = null
