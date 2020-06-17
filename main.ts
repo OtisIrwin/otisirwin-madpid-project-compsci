@@ -1,5 +1,6 @@
 namespace SpriteKind {
     export const coin = SpriteKind.create()
+    export const Space_Stone = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -151,6 +152,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         YELLOW_BALL.vy = -140
     }
 })
+let Space_Stone: Sprite = null
 let Coin: Sprite = null
 let YELLOW_BALL: Sprite = null
 scene.setBackgroundColor(15)
@@ -178,7 +180,7 @@ tiles.setTilemap(tiles.createTilemap(
             img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 . 
 . . . . . . . . . . . . . . . . . . . 2 2 2 2 . . . . . . . . . . 2 2 2 2 2 . . . . . . . . . 2 . . 
 2 2 2 2 . . . . . . . . . . . . . . 2 . . . . . . . . . 2 2 2 2 2 . . . . . . . . . . 2 2 2 2 . . . 
@@ -452,5 +454,28 @@ for (let value of tiles.getTilesByType(myTiles.tile6)) {
     true
     )
     tiles.placeOnTile(Coin, value)
+    tiles.setTileAt(value, myTiles.tile0)
+}
+for (let value of tiles.getTilesByType(myTiles.tile8)) {
+    Space_Stone = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . 3 3 3 3 3 3 3 . . . . . . 
+. 3 3 3 3 3 3 3 3 3 3 3 . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Space_Stone)
+    Space_Stone.ay = 100
+    tiles.placeOnTile(Space_Stone, value)
     tiles.setTileAt(value, myTiles.tile0)
 }
